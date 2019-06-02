@@ -1,0 +1,8 @@
+To run code and sync arduino commands must be run in this order
+$ roscore
+$ rosrun <package-name-for-test-node> tester
+$ rosrun rosserial_python serial_node.py /dev/ttyACM0(1) //depends on which port the arduino connects to
+
+***prior to this***
+rosserial must be installed onto the system, instructions can be found on the ros wiki for kinetic, the library must also be added 
+to the arduino IDE in order for the code to upload to the arduino without compilation errors
