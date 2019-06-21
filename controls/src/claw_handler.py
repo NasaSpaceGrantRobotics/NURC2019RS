@@ -10,7 +10,7 @@ class ClawHandler:
 
     def __init__(self):
         self.__e_stop = False
-        self.claw_values_pub = rospy.Publisher('claw_values', Twist, queue_size=10)
+        self.claw_values_pub = rospy.Publisher('claw_values', Int32MultiArray, queue_size=10)
         self.__trans_scaled_bounds = (0, 1700)
         self.__rot_scaled_bounds = (0, 1700)
         self.claw_values_msg = Int32MultiArray()
