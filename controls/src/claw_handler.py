@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
-from std_msgs.msg import Float32MultiArray
+from std_msgs.msg import Int32MultiArray
 from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 
@@ -13,7 +13,7 @@ class ClawHandler:
         self.claw_values_pub = rospy.Publisher('claw_values', Twist, queue_size=10)
         self.__trans_scaled_bounds = (0, 1700)
         self.__rot_scaled_bounds = (0, 1700)
-        self.claw_values_msg = Float32MultiArray()
+        self.claw_values_msg = Int32MultiArray()
         self.claw_values_msg.data = [self.scale_trans_normed_to_pwm(0.0), self.scale_rot_normed_to_pwm(0.0)]
 
 
