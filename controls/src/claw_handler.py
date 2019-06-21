@@ -11,10 +11,10 @@ class ClawHandler:
     def __init__(self):
         self.__e_stop = False
         self.claw_values_pub = rospy.Publisher('claw_values', Int32MultiArray, queue_size=10)
-        self.__trans_scaled_bounds = (0, 1700)
-        self.__rot_scaled_bounds = (0, 1700)
+        self.__trans_scaled_bounds = (1000, 2000)
+        self.__rot_scaled_bounds = (1000, 2000)
         self.claw_values_msg = Int32MultiArray()
-        self.claw_values_msg.data = [self.scale_trans_normed_to_pwm(0.0), self.scale_rot_normed_to_pwm(0.0)]
+        self.claw_values_msg.data = [self.scale_trans_normed_to_pwm(0.0) for i in range(0, 2)]
 
 
     @staticmethod
