@@ -16,7 +16,6 @@ class ClawHandler:
         self.claw_values_msg = Int32MultiArray()
         self.claw_values_msg.data = [self.scale_trans_normed_to_pwm(0.0) for i in range(0, 2)]
 
-
     @staticmethod
     def __bound_number(number, bounds):
         if number < bounds[0]:
@@ -63,14 +62,14 @@ class ClawHandler:
         rospy.Subscriber('target_claw', Twist, self.claw_callback)
         rospy.Subscriber('e_stop', Bool, self.e_stop_callback)
 
-        rospy.init_node('input_proc')
+        rospy.init_node('claw_handler')
         rospy.spin()
 
 
 if __name__ == "__main__":
     try:
-        input_proc = InputProcessor()
-        input_proc.start()
+        claw_handler = ClawHandler()
+        claw_handler.start()
     except rospy.ROSInterruptException:
         pass
 
